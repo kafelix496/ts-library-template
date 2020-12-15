@@ -1,6 +1,7 @@
 import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
+import typescript from 'rollup-plugin-typescript2'
 
 const common = (isProd) => ({
   plugins: [
@@ -23,43 +24,47 @@ const common = (isProd) => ({
             },
             modules: false
           }
-        ]
+        ],
+        '@babel/preset-typescript'
       ]
     }),
-    isProd && terser()
+    isProd && terser(),
+    typescript({
+      typescript: require('typescript')
+    })
   ]
 })
 
 const results = (fileName, umdName, external) => [{
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external: Object.keys(external),
   output: {
     file: `es/${fileName}.js`,
     format: 'es'
   }
 }, {
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external,
   output: {
     file: `es/${fileName}.min.js`,
     format: 'es'
   }
 }, {
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external,
   output: {
     file: `cjs/${fileName}.js`,
     format: 'cjs'
   }
 }, {
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external,
   output: {
     file: `cjs/${fileName}.min.js`,
     format: 'cjs'
   }
 }, {
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external,
   output: {
     file: `dist/${fileName}.js`,
@@ -68,7 +73,7 @@ const results = (fileName, umdName, external) => [{
     globals: external
   }
 }, {
-  input: `src/${fileName}/index.js`,
+  input: `src/${fileName}/index.ts`,
   external,
   output: {
     file: `dist/${fileName}.min.js`,

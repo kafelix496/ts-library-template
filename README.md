@@ -1,5 +1,5 @@
-# js-library-template
-Javascript library template
+# ts-library-template
+Typescript library template
 
 ## Need to change custom config names and stuff
 > Recommend to use initialize scripts

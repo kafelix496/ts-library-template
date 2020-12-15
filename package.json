@@ -1,7 +1,7 @@
 {
-  "name": "@kafelix496/js-library-template",
+  "name": "@kafelix496/ts-library-template",
   "version": "1.0.0",
-  "description": "Javascript library template",
+  "description": "Typescript library template",
   "main": "./cjs/index.js",
   "exports": {
     ".": {
@@ -21,24 +21,32 @@
     "@babel/preset-env": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
-    "babel-jest": "^26.3.0",
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
     "eslint": "^7.15.0",
     "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-with-typescript": "^19.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
     "lint-staged": "^10.2.13",
     "rimraf": "^3.0.2",
     "rollup": "^2.26.9",
-    "rollup-plugin-terser": "^7.0.1"
+    "rollup-plugin-terser": "^7.0.1",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "ts-jest": "^26.4.4",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.3"
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint '**/*.js'",
-    "lint:fix": "eslint --fix '**/*.js'",
+    "lint": "eslint '**/*.ts'",
+    "lint:fix": "eslint --fix '**/*.ts'",
     "prebuild": "rimraf es cjs dist",
     "build": "rollup --config && node ./scripts/copyIndexFile.js"
   },
@@ -48,14 +56,14 @@
     }
   },
   "lint-staged": {
-    "*.js": "npm run lint"
+    "*.ts": "npm run lint"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kafelix496/js-library-template.git"
   },
   "keywords": [
-    "javascript",
+    "typescript",
     "library",
     "template"
   ],
@@ -71,6 +79,7 @@
     "dist"
   ],
   "dependencies": {
+    "@babel/preset-typescript": "^7.12.7",
     "enquirer": "^2.3.6"
   }
 }
