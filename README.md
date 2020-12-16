@@ -1,9 +1,9 @@
 # ts-library-template
 Typescript library template
 
-## Need to change custom config names and stuff
-> Recommend to use initialize scripts
-``` node scripts/initConfig.js ```
+## Step to start !
+- npm install
+- node scrtips/initConfig.js
 
 ## Lint
 ```
