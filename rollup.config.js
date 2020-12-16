@@ -30,60 +30,48 @@ const common = (isProd) => ({
     }),
     isProd && terser(),
     typescript({
-      typescript: require('typescript')
+      clean: true,
+      useTsconfigDeclarationDir: true,
+      tsconfig: './tsconfig.json'
     })
   ]
 })
 
-const results = (fileName, umdName, external) => [{
-  input: `src/${fileName}/index.ts`,
+const results = (umdName, external) => [{
+  input: `src/index.ts`,
   external: Object.keys(external),
   output: {
-    file: `es/${fileName}.js`,
+    file: `dist/index.es.js`,
     format: 'es'
   }
 }, {
-  input: `src/${fileName}/index.ts`,
-  external,
+  input: `src/index.ts`,
+  external: Object.keys(external),
   output: {
-    file: `es/${fileName}.min.js`,
-    format: 'es'
-  }
-}, {
-  input: `src/${fileName}/index.ts`,
-  external,
-  output: {
-    file: `cjs/${fileName}.js`,
+    file: `dist/index.cjs.js`,
     format: 'cjs'
   }
 }, {
-  input: `src/${fileName}/index.ts`,
-  external,
+  input: `src/index.ts`,
+  external: Object.keys(external),
   output: {
-    file: `cjs/${fileName}.min.js`,
-    format: 'cjs'
-  }
-}, {
-  input: `src/${fileName}/index.ts`,
-  external,
-  output: {
-    file: `dist/${fileName}.js`,
+    file: `dist/index.umd.js`,
     format: 'umd',
     name: umdName,
     globals: external
   }
 }, {
-  input: `src/${fileName}/index.ts`,
-  external,
+  input: `src/index.ts`,
+  external: Object.keys(external),
   output: {
-    file: `dist/${fileName}.min.js`,
+    file: `dist/index.umd.min.js`,
     format: 'umd',
     name: umdName,
     globals: external
   }
 }]
 
-export default results('customLibraryTemplate', 'CUSTOM_UMD_GLOBAL_VARIABLE', {}).map((object) => ({
+export default results('CUSTOM_UMD_GLOBAL_VARIABLE', {}).map((object) => ({
   ...common(/.+min\.js$/.test(object.output.file)),
   ...object
 }))
