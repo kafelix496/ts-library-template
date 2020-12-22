@@ -11,10 +11,7 @@
     "strictPropertyInitialization": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "types/",
+    "jsx": "react",
 
     "strict": true,
     "alwaysStrict": true,
