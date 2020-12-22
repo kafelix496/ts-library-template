@@ -11,6 +11,8 @@
     "strictPropertyInitialization": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "allowJs": true,
+    "noEmit": true,
     "jsx": "react",
 
     "strict": true,
