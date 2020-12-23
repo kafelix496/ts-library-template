@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
+import pkg from './package.json'
 
 const common = (isProd) => ({
   plugins: [
@@ -24,21 +25,21 @@ const results = (umdName, external) => [{
   input: `src/index.ts`,
   external: Object.keys(external),
   output: {
-    file: `dist/index.es.js`,
+    file: pkg.module,
     format: 'es'
   }
 }, {
   input: `src/index.ts`,
   external: Object.keys(external),
   output: {
-    file: `dist/index.cjs.js`,
+    file: pkg.main,
     format: 'cjs'
   }
 }, {
   input: `src/index.ts`,
   external: Object.keys(external),
   output: {
-    file: `dist/index.umd.min.js`,
+    file: pkg.unpkg,
     format: 'umd',
     name: umdName,
     globals: external
