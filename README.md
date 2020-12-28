@@ -20,12 +20,5 @@ npm run test
 npm run build
 ```
 
-## Examples
-```
-es : npm start 
-cjs : node index.js
-umd : npx serve
-```
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
