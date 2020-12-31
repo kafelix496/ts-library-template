@@ -1,3 +1,8 @@
+![](https://badgen.net/npm/v/@kafelix496/ts-library-template)
+![](https://badgen.net/bundlephobia/minzip/@kafelix496/ts-library-template)
+![](https://badgen.net/npm/dt/@kafelix496/ts-library-template)
+![](https://img.shields.io/badge/license-MIT-blue.svg)
+
 # ts-library-template
 Typescript library template
 
