@@ -10,6 +10,7 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "noImplicitAny": true,
+    "noImplicitThis": false,
     "esModuleInterop": true,
     "allowJs": true,
     "noEmit": true,
