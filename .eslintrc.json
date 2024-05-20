@@ -4,9 +4,10 @@
     "browser": true,
     "es2021": true
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
-    "standard-with-typescript",
     "plugin:jest/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -20,7 +21,9 @@
       "error",
       {
         "allowDestructuring": false,
-        "allowedNames": ["self"]
+        "allowedNames": [
+          "self"
+        ]
       }
     ],
     "@typescript-eslint/space-before-function-paren": [
